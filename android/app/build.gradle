@@ -1,0 +1,43 @@
+plugins {
+    id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.abibdigit.flash_chat"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = "27.0.12077973" // Mettez à jour la version NDK requise
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11 // Mettez à jour à Java 11
+        targetCompatibility = JavaVersion.VERSION_11 // Mettez à jour à Java 11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11" // Mettez à jour à Java 11
+    }
+
+    defaultConfig {
+        applicationId = "com.abibdigit.flash_chat"
+        minSdk = 23 // Gardez la valeur minimale que vous souhaitez
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
